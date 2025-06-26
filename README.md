@@ -1,5 +1,5 @@
 <p align="center">
-    <h1 align="center">SPARK: Self-supervised Personalized Real-time Monocular Face Capture</h1>
+    <h1 align="center">Sparfels: Fast Reconstruction from Sparse Unposed Imagery</h1>
     <p align="center">
         <a href="https://scholar.google.com/citations?user=COw5y4EAAAAJ&hl=en"><strong>Shubhendu Jena<sup>†</sup></strong></a>
         .
