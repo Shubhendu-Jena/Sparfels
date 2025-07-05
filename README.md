@@ -11,8 +11,8 @@
 </p>
 
 <p align="center">
-  <a href="https://www.inria.fr/en/inria-centre-rennes-university">
-    Inria, Univ. Rennes, CNRS, IRISA
+  <a href="https://www.inria.fr/en">
+    Inria
   </a>  
   <br>
   <strong>ICCV 2025</strong>
