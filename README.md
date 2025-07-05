@@ -2,12 +2,12 @@
 
 <p align="center">
   <a href="https://scholar.google.com/citations?user=COw5y4EAAAAJ&hl=en">
-    <strong>Shubhendu Jena<sup>†</sup></strong>
-  </a>
+    <strong>Shubhendu Jena</strong>
+  </a><sup>†</sup>
   ·
   <a href="https://ouasfi.github.io/">
-    <strong>Amine Ouasfi<sup>†</sup></strong>
-  </a>
+    <strong>Amine Ouasfi</strong>
+  </a><sup>†</sup>
   ·
   <a href="https://orcid.org/0000-0002-4831-3343">
     <strong>Mae Younes</strong>
