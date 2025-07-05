@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.inria.fr/en/inria-centre-rennes-university">
+  <a href="https://www.inria.fr/en">
     Inria
   </a>  
   <br>
