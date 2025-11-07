@@ -22,7 +22,7 @@
 &nbsp;
 [![ArXiv Paper](https://img.shields.io/badge/ArXiv-Paper-red?style=flat&logo=arXiv&logoColor=red)](https://arxiv.org/abs/2505.02178)
 &nbsp;
-[![CVF](https://img.shields.io/badge/PDF-Download-green?style=flat&logo=Adobe%20Acrobat%20Reader&logoColor=green)](https://openaccess.thecvf.com/content/ICCV2025/papers/Jena_Sparfels_Fast_Reconstruction_from_Sparse_Unposed_Imagery_ICCV_2025_paper.pdf)
+[![CVF Open Access](https://img.shields.io/badge/CVF-Open%20Access-blue?style=flat&logo=openaccess&logoColor=white)](https://openaccess.thecvf.com/content/ICCV2025/papers/Jena_Sparfels_Fast_Reconstruction_from_Sparse_Unposed_Imagery_ICCV_2025_paper.pdf)
 
 </div>
 
