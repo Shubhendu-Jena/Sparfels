@@ -11,9 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.inria.fr/en">
-    Inria
-  </a>  
+  <a href="https://www.inria.fr/en"> Inria </a>  
   <br>
   <strong>ICCV 2025</strong>
 </p>
@@ -35,3 +33,54 @@
 <p align="center">
   <img src="assets/teaser.png" alt="Sparfels Teaser Figure" width="98%">
 </p>
+
+---
+
+## Installation
+
+> **Tested:** Ubuntu 22.04+, Conda, Python 3.9, PyTorch 2.5.1 (CUDA 12.1 wheels).
+
+```bash
+# Create and activate environment
+conda create -n sparfels python=3.9 -y
+conda activate sparfels
+
+# PyTorch (CUDA 12.1 wheels)
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+
+# Core dependencies
+pip install kornia plyfile open3d
+
+# Local submodules
+pip install submodules/simple-knn
+pip install submodules/diff-surfel-rasterization
+
+# Dust3R / Mast3R requirements
+cd submodules/dust3r/ && pip install -r requirements.txt && pip install -r requirements_optional.txt || true
+cd ../mast3r/ && pip install -r requirements.txt
+cd ../..
+
+# FAISS + Cython
+conda install -y -c conda-forge "faiss-cpu=1.8.*"
+pip install cython
+
+# ASMK (build from source)
+git clone https://github.com/jenicek/asmk
+cd asmk/cython/ && cythonize *.pyx
+cd ..
+pip install .   # or: python setup.py build_ext --inplace
+cd ..
+
+# Build Dust3R curope extension
+cd submodules/dust3r/croco/models/curope/
+python setup.py build_ext --inplace
+cd ../../../../../
+
+# Extras + scientific stack pins
+pip install mediapy embreex
+pip install --upgrade "numpy>=2.0,<3" "scipy>=1.13,<2" "scikit-learn>=1.4,<2" "open3d>=0.18.0"
+
+# PyTorch3D (for torch 2.5.1 + cu121)
+conda install -y -c iopath iopath
+conda install -y -c bottler nvidiacub
+pip install --extra-index-url https://miropsota.github.io/torch_packages_builder pytorch3d==0.7.8+5043d15pt2.5.1cu121
