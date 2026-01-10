@@ -1,0 +1,41 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda/bin/nvcc
+
+cflags = -pthread -B /home/shubhendu/anaconda3/envs/Shubhendu/compiler_compat -fno-strict-overflow -Wsign-compare -DNDEBUG -O2 -Wall -fPIC -O2 -isystem /home/shubhendu/anaconda3/envs/Shubhendu/include -fPIC -O2 -isystem /home/shubhendu/anaconda3/envs/Shubhendu/include -fPIC -I/home/shubhendu/anaconda3/envs/Shubhendu/lib/python3.14/site-packages/torch/include -I/home/shubhendu/anaconda3/envs/Shubhendu/lib/python3.14/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/home/shubhendu/anaconda3/envs/Shubhendu/include/python3.14 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -std=c++17
+cuda_cflags = -I/home/shubhendu/anaconda3/envs/Shubhendu/lib/python3.14/site-packages/torch/include -I/home/shubhendu/anaconda3/envs/Shubhendu/lib/python3.14/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/home/shubhendu/anaconda3/envs/Shubhendu/include/python3.14 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -I/home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/third_party/glm/ -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -gencode=arch=compute_89,code=sm_89 -std=c++17
+cuda_dlink_post_cflags = 
+sycl_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+
+
+build /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/cuda_rasterizer/backward.o: cuda_compile /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/cuda_rasterizer/backward.cu
+build /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/cuda_rasterizer/forward.o: cuda_compile /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/cuda_rasterizer/forward.cu
+build /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/cuda_rasterizer/rasterizer_impl.o: cuda_compile /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/cuda_rasterizer/rasterizer_impl.cu
+build /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/ext.o: compile /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/ext.cpp
+build /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/rasterize_points.o: cuda_compile /home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/rasterize_points.cu
+
+
+
+
+
+
+
+

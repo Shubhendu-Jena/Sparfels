@@ -1,0 +1,12 @@
+# ninja log v5
+3	6958	1733166624988602600	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/forward.o	d71a334a89393a62
+3	7316	1733166625345912800	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/backward.o	d6d489973a9efbb2
+4	16355	1733166634375689300	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/rasterizer_impl.o	4b1446c8b01e1d8
+4	20453	1733166638458043500	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/ext.o	a6bd5f2256be4c43
+5	93853	1733166711818238500	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/rasterize_points.o	63c61e16abdb370c
+91	6743	1733166916847211900	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/forward.o	d71a334a89393a62
+91	6844	1733166916947909200	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/backward.o	d6d489973a9efbb2
+92	17561	1733166927655493500	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/rasterizer_impl.o	4b1446c8b01e1d8
+86	7106	1733167091407073200	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/forward.o	d71a334a89393a62
+80	7152	1733167453304719400	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/cuda_rasterizer/forward.o	d71a334a89393a62
+81	90082	1733167536173015500	/media/shubhendujena/DATA/2d-gaussian-splatting-variance/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-311/rasterize_points.o	63c61e16abdb370c
