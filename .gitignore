@@ -1,6 +1,5 @@
 
 # keep external deps as submodules later
-/submodules/mast3r/
 
 # keep locally, do not commit
 
