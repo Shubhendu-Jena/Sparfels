@@ -6,3 +6,17 @@
 # keep locally, do not commit
 submodules/dust3r/
 submodules/mast3r/
+
+# --- build artifacts (do not commit) ---
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.so
+**/*.o
+**/*.a
+**/*.dylib
+**/*.dll
+**/*.egg-info/
+**/build/
+**/dist/
+**/.ninja_*
