@@ -1,6 +1,0 @@
-# ninja log v7
-1	2140	1762512039512431549	/home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/cuda_rasterizer/forward.o	1de19f4875c7d0bb
-0	2281	1762512039511652501	/home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/cuda_rasterizer/backward.o	9b479d071fc6ca3e
-1	7683	1762512039513779505	/home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/cuda_rasterizer/rasterizer_impl.o	fcd71ac2ec23d4a7
-1	11559	1762512039514035599	/home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/ext.o	e09296d4c763732a
-1	48965	1762512039514236102	/home/shubhendu/Documents/ICCV/Sparfels/submodules/diff-surfel-rasterization/build/temp.linux-x86_64-cpython-314/rasterize_points.o	af7482494b4b7502
