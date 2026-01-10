@@ -77,7 +77,7 @@ python setup.py build_ext --inplace
 cd ../../../../../
 
 # Extras + scientific stack pins
-pip install mediapy embreex
+pip install mediapy embreex evo
 pip install --upgrade "numpy>=2.0,<3" "scipy>=1.13,<2" "scikit-learn>=1.4,<2" "open3d>=0.18.0"
 
 # PyTorch3D (for torch 2.5.1 + cu121)
