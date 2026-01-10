@@ -41,6 +41,9 @@
 > **Tested:** Ubuntu 22.04+, Conda, Python 3.9, PyTorch 2.5.1 (CUDA 12.1 wheels).
 
 ```bash
+# Clone repo
+git clone --recurse-submodules https://github.com/Shubhendu-Jena/Sparfels.git
+
 # Create and activate environment
 conda create -n sparfels python=3.9 -y
 conda activate sparfels
