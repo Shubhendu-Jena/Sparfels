@@ -4,8 +4,6 @@
 /submodules/dust3r/
 
 # keep locally, do not commit
-submodules/dust3r/
-submodules/mast3r/
 
 # --- build artifacts (do not commit) ---
 **/__pycache__/
