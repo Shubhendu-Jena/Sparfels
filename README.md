@@ -205,7 +205,7 @@ If you find this code useful, please cite:
   author    = {Jena, Shubhendu and Ouasfi, Amine and Younes, Mae and Boukhayma, Adnane},
   booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
   year      = {2025},
-  month     = oct,
+  month     = {October},
   pages     = {27476--27487},
   note      = {arXiv:2505.02178}
 }
