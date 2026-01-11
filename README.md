@@ -43,6 +43,7 @@
 ```bash
 # Clone repo
 git clone --recurse-submodules https://github.com/Shubhendu-Jena/Sparfels.git
+cd Sparfels
 
 # Create and activate environment
 conda create -n sparfels python=3.9 -y
