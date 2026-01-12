@@ -108,14 +108,31 @@ bash scripts/eval_depth.sh -s 1
 
 ---
 
-## Data
+## DTU Data
 
-### DTU
-Download the DTU dataset and set the dataset path inside:
+**Download:**
+- **3-view splits** (set 0 and set 1) across several scans: *(link)*
+- **Pre-processed DTU training set** (provided by MVSNet): *(link)*
+- **Depths_raw** (provided by MVSNet): *(link)*
+
+**Organize the training dataset as follows:**
+```text
+<root_directory>/
+├── Cameras/
+├── Rectified/
+└── Depths_raw/
+
+**Set the DTU root path inside:**
 - `scripts/dtu_train.sh`
 - `scripts/eval_depth.sh`
 
 > Look for variables such as `DTU_ROOT`, `DATA_ROOT`, `DATA_DIR`, etc.
+
+**Download from DTU’s official resources:**
+- **SampleSet**: *(link)* (official page: http://roboimagedata.compute.dtu.dk/?page_id=36)
+- **Points**: *(link)*
+
+**Unzip** `SampleSet` and `Points`, then place the `Points/` folder in `SampleSet/MVS Data/`.
 
 ---
 
