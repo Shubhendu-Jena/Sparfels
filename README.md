@@ -50,23 +50,39 @@ conda create -n sparfels python=3.9 -y
 conda activate sparfels
 
 # PyTorch (CUDA 12.1 wheels)
-pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 \
+  --index-url https://download.pytorch.org/whl/cu121
 
 # Core dependencies
 pip install kornia plyfile open3d scikit-image
 
-# Local submodules
-pip install -v -e ./submodules/simple-knn --no-build-isolation
-pip install -v -e ./submodules/diff-surfel-rasterization --no-build-isolation
+# -------------------------
+# Local submodules (required)
+# -------------------------
 
-# MASt3R requirements
+# simple-knn (IMPORTANT)
+# Some checkouts may miss the Python package marker; ensure it exists so editable install exposes `simple_knn`.
+python -m pip uninstall -y simple_knn simple-knn || true
+test -f submodules/simple-knn/simple_knn/__init__.py || \
+  (mkdir -p submodules/simple-knn/simple_knn && touch submodules/simple-knn/simple_knn/__init__.py)
+python -m pip install -v -e submodules/simple-knn --no-build-isolation
+
+# diff-surfel-rasterization
+python -m pip install -v -e submodules/diff-surfel-rasterization --no-build-isolation
+
+# -------------------------
+# MASt3R / Dust3R
+# -------------------------
 cd submodules/mast3r/dust3r/ && pip install -r requirements.txt && pip install -r requirements_optional.txt || true
 cd .. && pip install -r requirements.txt
+
 mkdir -p checkpoints/
 wget https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth -P checkpoints/
 cd ../..
 
-# FAISS + Cython
+# -------------------------
+# FAISS + Cython + ASMK
+# -------------------------
 conda install -y -c conda-forge "faiss-cpu=1.8.*"
 pip install cython
 
@@ -77,19 +93,26 @@ cd ..
 pip install -e .   # or: python setup.py build_ext --inplace
 cd ..
 
+# -------------------------
 # Build Dust3R curope extension
+# -------------------------
 cd submodules/mast3r/dust3r/croco/models/curope/
 python setup.py build_ext --inplace
 cd ../../../../../..
 
+# -------------------------
 # Extras + scientific stack pins
+# -------------------------
 pip install mediapy embreex evo
 pip install --upgrade "numpy>=2.0,<3" "scipy>=1.13,<2" "scikit-learn>=1.4,<2" "open3d>=0.18.0"
 
+# -------------------------
 # PyTorch3D (for torch 2.5.1 + cu121)
+# -------------------------
 conda install -y -c iopath iopath
 conda install -y -c bottler nvidiacub
-pip install --extra-index-url https://miropsota.github.io/torch_packages_builder pytorch3d==0.7.8+5043d15pt2.5.1cu121
+pip install --extra-index-url https://miropsota.github.io/torch_packages_builder \
+  pytorch3d==0.7.8+5043d15pt2.5.1cu121
 ```
 
 ---
