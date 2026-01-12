@@ -121,6 +121,7 @@ bash scripts/eval_depth.sh -s 1
 ├── Cameras/
 ├── Rectified/
 └── Depths_raw/
+```
 
 **Set the DTU root path inside:**
 - `scripts/dtu_train.sh`
