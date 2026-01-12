@@ -108,7 +108,7 @@ bash scripts/eval_depth.sh -s 1
 
 ---
 
-## DTU Data (As described in [this link](https://github.com/YixunLiang/ReTR/blob/master/README.md))
+## DTU Data (As described in [ReTR](https://github.com/YixunLiang/ReTR/blob/master/README.md))
 
 **Download:**
 - **3-view splits** (set 0 and set 1) across several scans: [download](https://drive.google.com/file/d/1qngauSOxiWYzY3w3KV3idacfeBXfufZt/view?usp=sharing)
