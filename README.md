@@ -56,12 +56,12 @@ pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https
 pip install kornia plyfile open3d scikit-image
 
 # Local submodules
-pip install submodules/simple-knn
-pip install submodules/diff-surfel-rasterization
+pip install -v -e ./submodules/simple-knn --no-build-isolation
+pip install -v -e ./submodules/diff-surfel-rasterization --no-build-isolation
 
 # Dust3R / Mast3R requirements
-cd submodules/dust3r/ && pip install -r requirements.txt && pip install -r requirements_optional.txt || true
-cd ../mast3r/ && pip install -r requirements.txt
+cd submodules/mast3r/dust3r/ && pip install -r requirements.txt && pip install -r requirements_optional.txt || true
+cd .. && pip install -r requirements.txt
 cd ../..
 
 # FAISS + Cython
@@ -72,13 +72,13 @@ pip install cython
 git clone https://github.com/jenicek/asmk
 cd asmk/cython/ && cythonize *.pyx
 cd ..
-pip install .   # or: python setup.py build_ext --inplace
+pip install -e .   # or: python setup.py build_ext --inplace
 cd ..
 
 # Build Dust3R curope extension
-cd submodules/dust3r/croco/models/curope/
+cd submodules/mast3r/dust3r/croco/models/curope/
 python setup.py build_ext --inplace
-cd ../../../../../
+cd ../../../../../..
 
 # Extras + scientific stack pins
 pip install mediapy embreex evo
