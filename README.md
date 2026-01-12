@@ -59,9 +59,11 @@ pip install kornia plyfile open3d scikit-image
 pip install -v -e ./submodules/simple-knn --no-build-isolation
 pip install -v -e ./submodules/diff-surfel-rasterization --no-build-isolation
 
-# Dust3R / Mast3R requirements
+# MASt3R requirements
 cd submodules/mast3r/dust3r/ && pip install -r requirements.txt && pip install -r requirements_optional.txt || true
 cd .. && pip install -r requirements.txt
+mkdir -p checkpoints/
+wget https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth -P checkpoints/
 cd ../..
 
 # FAISS + Cython
