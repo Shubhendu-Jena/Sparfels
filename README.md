@@ -131,7 +131,7 @@ bash scripts/eval_depth.sh -s 1
 
 **Download from DTU’s official resources:**
 - **SampleSet**: [download](http://roboimagedata.compute.dtu.dk/?page_id=36) 
-- **Points**: [download]([https://YOUR_LINK_HERE](http://roboimagedata.compute.dtu.dk/?page_id=36))
+- **Points**: [download](http://roboimagedata.compute.dtu.dk/?page_id=36)
 
 **Unzip** `SampleSet` and `Points`, then place the `Points/` folder in `SampleSet/MVS Data/`.
 
