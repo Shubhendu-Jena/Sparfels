@@ -57,10 +57,10 @@ pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 \
 pip install kornia plyfile open3d scikit-image
 
 # -------------------------
-# Local submodules (required)
+# Local submodules 
 # -------------------------
 
-# simple-knn (IMPORTANT)
+# simple-knn 
 # Some checkouts may miss the Python package marker; ensure it exists so editable install exposes `simple_knn`.
 python -m pip uninstall -y simple_knn simple-knn || true
 test -f submodules/simple-knn/simple_knn/__init__.py || \
@@ -71,7 +71,7 @@ python -m pip install -v -e submodules/simple-knn --no-build-isolation
 python -m pip install -v -e submodules/diff-surfel-rasterization --no-build-isolation
 
 # -------------------------
-# MASt3R / Dust3R
+# MASt3R 
 # -------------------------
 cd submodules/mast3r/dust3r/ && pip install -r requirements.txt && pip install -r requirements_optional.txt || true
 cd .. && pip install -r requirements.txt
@@ -94,7 +94,7 @@ pip install -e .   # or: python setup.py build_ext --inplace
 cd ..
 
 # -------------------------
-# Build Dust3R curope extension
+# Build DUSt3R curope extension
 # -------------------------
 cd submodules/mast3r/dust3r/croco/models/curope/
 python setup.py build_ext --inplace
