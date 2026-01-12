@@ -61,8 +61,6 @@ pip install kornia plyfile open3d scikit-image
 # -------------------------
 
 # simple-knn 
-# Some checkouts may miss the Python package marker; ensure it exists so editable install exposes `simple_knn`.
-python -m pip uninstall -y simple_knn simple-knn || true
 test -f submodules/simple-knn/simple_knn/__init__.py || \
   (mkdir -p submodules/simple-knn/simple_knn && touch submodules/simple-knn/simple_knn/__init__.py)
 python -m pip install -v -e submodules/simple-knn --no-build-isolation
