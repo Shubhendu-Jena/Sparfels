@@ -111,9 +111,9 @@ bash scripts/eval_depth.sh -s 1
 ## DTU Data
 
 **Download:**
-- **3-view splits** (set 0 and set 1) across several scans: *(link)*
-- **Pre-processed DTU training set** (provided by MVSNet): *(link)*
-- **Depths_raw** (provided by MVSNet): *(link)*
+- **3-view splits** (set 0 and set 1) across several scans: [download](https://drive.google.com/file/d/1qngauSOxiWYzY3w3KV3idacfeBXfufZt/view?usp=sharing)
+- **Pre-processed DTU training set** (provided by MVSNet): [download](https://drive.google.com/file/d/1eDjh-_bxKKnEuz5h-HXS7EDJn59clx6V/view)
+- **Depths_raw** (provided by MVSNet): [download](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/cascade-stereo/CasMVSNet/dtu_data/dtu_train_hr/Depths_raw.zip)
 
 **Organize the training dataset as follows:**
 ```text
@@ -129,8 +129,8 @@ bash scripts/eval_depth.sh -s 1
 > Look for variables such as `DTU_ROOT`, `DATA_ROOT`, `DATA_DIR`, etc.
 
 **Download from DTU’s official resources:**
-- **SampleSet**: *(link)* (official page: http://roboimagedata.compute.dtu.dk/?page_id=36)
-- **Points**: *(link)*
+- **SampleSet**: [download](http://roboimagedata.compute.dtu.dk/?page_id=36) 
+- **Points**: [download]([https://YOUR_LINK_HERE](http://roboimagedata.compute.dtu.dk/?page_id=36))
 
 **Unzip** `SampleSet` and `Points`, then place the `Points/` folder in `SampleSet/MVS Data/`.
 
