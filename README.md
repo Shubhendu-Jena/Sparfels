@@ -204,7 +204,7 @@ python mean_cam_metrics.py \
 git clone --recurse-submodules https://github.com/Shubhendu-Jena/Sparfels.git
 ```
 
-### Rebuild Dust3R curope extension
+### Rebuild DUSt3R curope extension
 ```bash
 cd submodules/dust3r/croco/models/curope/
 python setup.py build_ext --inplace
