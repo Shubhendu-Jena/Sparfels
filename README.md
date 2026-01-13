@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://www.inria.fr/en"> Inria </a>  
   <br>
-  <strong>ICCV 2025 <span style="color:#D4AF37;">(Highlight)</span></strong>
+  <strong>ICCV 2025 <span style="color:#D4AF37;"></span></strong>
 </p>
 
 <div align="center">
