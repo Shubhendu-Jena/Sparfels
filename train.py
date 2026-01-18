@@ -309,10 +309,11 @@ if __name__ == "__main__":
     args.save_iterations.append(args.iterations)
     args.checkpoint_iterations.append(args.iterations)
 
+    opt = op.extract(args)
     if args.nvs:
-        op.lambda_dist = 0.0
-        op.densification_interval = 100
-        op.densify_from_iter = 500
+        opt.lambda_dist = 0.0
+        opt.densification_interval = 100
+        opt.densify_from_iter = 500
     
     print("Optimizing " + args.model_path)
 
@@ -320,7 +321,7 @@ if __name__ == "__main__":
     safe_state(args.quiet)
 
     torch.autograd.set_detect_anomaly(args.detect_anomaly)
-    training(lp.extract(args), op.extract(args), pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint)
+    training(lp.extract(args), opt, pp.extract(args), args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint)
 
     # All done
     print("\nTraining complete.")
