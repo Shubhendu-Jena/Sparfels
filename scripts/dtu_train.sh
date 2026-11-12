@@ -16,7 +16,7 @@ while getopts "s:i:n:" flag; do
 done
 
 export PYTHONPATH="${PYTHONPATH:-}:./utils"
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 
 data_dir="./dtu_${set_id}"
 out_root="./output_set_${set_id}"

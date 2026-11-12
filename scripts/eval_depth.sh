@@ -11,7 +11,7 @@ dataset_dir="../../Datasets_ICCV/mvs_training/dtu/Depths_raw"
 test_dir="../../Datasets_ICCV/DTU_TEST"
 
 export PYTHONPATH="${PYTHONPATH:-}:./utils"
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 
 # Parse flags: -a alignment, -i iter, -s set
 while getopts a:i:s: flag; do
@@ -44,7 +44,8 @@ if [[ ! -d "${test_dir_abs}/scan24/mask" ]]; then
   echo "WARN: ${test_dir_abs}/scan24/mask not found; verify test_dir layout (should be .../DTU_TEST/scanXX/mask/)."
 fi
 
-# Run sequentially for clear errors
+# Evaluate all scans in parallel, then wait for them to finish
+pids=()
 for scene in "${scenes[@]}"; do
   python evaluation/depth_normal_metrics.py \
     --dataset_dir "$dataset_dir_abs" \
@@ -54,7 +55,13 @@ for scene in "${scenes[@]}"; do
     --scan "$scene" \
     --alignment "$alignment" \
     --set "$set" &
+  pids+=($!)
 done
-wait
+
+failed=0
+for pid in "${pids[@]}"; do
+  wait "$pid" || failed=$((failed + 1))
+done
+[[ $failed -eq 0 ]] || { echo "ERROR: $failed scan(s) failed to evaluate (set=$set)"; exit 1; }
 
 echo "Done. set=$set, ckpt=$iter, alignment=$alignment, meshdir=$meshdir"
