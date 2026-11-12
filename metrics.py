@@ -11,6 +11,7 @@
 
 from pathlib import Path
 import os
+import traceback
 from PIL import Image
 import torch
 import torchvision.transforms.functional as tf
@@ -211,8 +212,9 @@ def evaluate(args):
             
             
 
-        except:
+        except Exception:
             print("Unable to compute metrics for model", scene_dir)
+            traceback.print_exc()
 
 if __name__ == "__main__":
     device = torch.device("cuda:0")
