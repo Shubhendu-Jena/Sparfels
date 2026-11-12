@@ -39,6 +39,8 @@
 ## Installation
 
 > **Tested:** Ubuntu 22.04+, Conda, Python 3.9, PyTorch 2.5.1 (CUDA 12.1 wheels).
+>
+> Building the CUDA extensions needs a CUDA 12.x toolkit (`nvcc`). If your default `nvcc` is older, point to a 12.x install first, e.g. `export CUDA_HOME=/usr/local/cuda-12.1 && export PATH=$CUDA_HOME/bin:$PATH`.
 
 ```bash
 # Clone repo
@@ -63,10 +65,10 @@ pip install kornia plyfile open3d scikit-image
 # simple-knn 
 test -f submodules/simple-knn/simple_knn/__init__.py || \
   (mkdir -p submodules/simple-knn/simple_knn && touch submodules/simple-knn/simple_knn/__init__.py)
-python -m pip install -v -e submodules/simple-knn --no-build-isolation
+python -m pip install -v -e submodules/simple-knn --no-build-isolation --use-pep517
 
 # diff-surfel-rasterization
-python -m pip install -v -e submodules/diff-surfel-rasterization --no-build-isolation
+python -m pip install -v -e submodules/diff-surfel-rasterization --no-build-isolation --use-pep517
 
 # -------------------------
 # MASt3R 
@@ -110,7 +112,7 @@ pip install --upgrade "numpy>=2.0,<3" "scipy>=1.13,<2" "scikit-learn>=1.4,<2" "o
 conda install -y -c iopath iopath
 conda install -y -c bottler nvidiacub
 pip install --extra-index-url https://miropsota.github.io/torch_packages_builder \
-  pytorch3d==0.7.8+5043d15pt2.5.1cu121
+  pytorch3d==0.7.8+pt2.5.1cu121
 ```
 
 ---
