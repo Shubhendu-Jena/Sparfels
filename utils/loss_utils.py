@@ -22,6 +22,7 @@ rng = np.random.RandomState(234)
 _EPS = np.finfo(float).eps * 4.0
 TINY_NUMBER = 1e-6      # float32 only has 7 decimal digits precision
 VALID_IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".webp")
+VALID_IMAGE_EXTS = VALID_IMAGE_EXTS + tuple(e.upper() for e in VALID_IMAGE_EXTS)  # e.g. MipNeRF360 uses .JPG
 
 def to_homogeneous(points):
     """Convert N-dimensional points to homogeneous coordinates.
