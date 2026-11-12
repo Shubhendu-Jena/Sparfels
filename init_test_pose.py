@@ -240,13 +240,11 @@ if __name__ == '__main__':
     train_pts3d_m1 = train_pts3d_m1[:train_pts3d_n1.shape[0], :]
     s, R, T = rigid_points_registration(train_pts3d_n1, train_pts3d_m1)
 
-    transform_matrix = torch.eye(4)
-    transform_matrix[:3, :3] = R
-    transform_matrix[:3, 3] = T
-    transform_matrix[:3, 3] *= s
-    transform_matrix = transform_matrix.numpy()
-
-    test_poses_m1 = transform_matrix @ test_poses_n1
+    # Camera-to-world poses: R_c' = R @ R_c, c' = s * R @ c + T
+    R_np, T_np, s_f = R.numpy(), T.numpy(), float(s)
+    test_poses_m1 = np.array(test_poses_n1, dtype=np.float64).copy()
+    test_poses_m1[:, :3, :3] = R_np @ test_poses_n1[:, :3, :3]
+    test_poses_m1[:, :3, 3] = s_f * (test_poses_n1[:, :3, 3] @ R_np.T) + T_np
     save_colmap_images(test_poses_m1, os.path.join(test_output_colmap_path, 'images.txt'), test_img_list)
 
 
