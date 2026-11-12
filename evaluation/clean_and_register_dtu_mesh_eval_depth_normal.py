@@ -225,7 +225,8 @@ def export_depth_and_normals_with_masking(root_dir, instance_dir, pose_path, sou
         e1, e2 = v1 - v0, v2 - v0
         face_normals = torch.cross(e1, e2, dim=1)
         face_normals = torch.nn.functional.normalize(face_normals, dim=1)
-        face_normals = torch.einsum("ij,fj->fi", R_m[0], face_normals)
+        # R_m is W2C[:3,:3]^T (PyTorch3D row-vector convention); camera-frame normal = W2C[:3,:3] @ n = R_m^T @ n
+        face_normals = torch.einsum("ij,fj->fi", R_m[0].T, face_normals)
         face_attr = face_normals[:, None, :].expand(-1, 3, -1)
         normals = interpolate_face_attributes(raster_m.pix_to_face, raster_m.bary_coords, face_attr)[..., 0, :]
         normals = torch.flip(normals, dims=[1, 2])
