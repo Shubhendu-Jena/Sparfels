@@ -30,7 +30,7 @@ def process_folders(root_directory):
     all_lpips = []
 
     for folder in os.listdir(root_directory):
-        folder_path = os.path.join(root_directory, folder, "test", "ours_1000", "metrics.txt")
+        folder_path = os.path.join(root_directory, folder, "test", f"ours_{ITERATION}", "metrics.txt")
         if os.path.exists(folder_path):
             mean_psnr, mean_ssim, mean_lpips = parse_metrics_file(folder_path)
             results.append((folder, mean_psnr, mean_ssim, mean_lpips))
@@ -57,7 +57,10 @@ def write_results_to_file(output_path, results, overall_means):
         file.write(f"PSNR: {overall_means[0]:.2f}, SSIM: {overall_means[1]:.4f}, LPIPS: {overall_means[2]:.4f}\n")
 
 # Main execution
-root_directory = "."
+# usage: python mean_calculate_nvs.py [output_root (default .)] [iteration (default 2000, as in scripts/nvs_*.sh)]
+import sys
+root_directory = sys.argv[1] if len(sys.argv) > 1 else "."
+ITERATION = int(sys.argv[2]) if len(sys.argv) > 2 else 2000
 output_file_path = os.path.join(root_directory, "mean_metrics.txt")
 
 # Process folders and compute metrics
