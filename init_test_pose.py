@@ -238,7 +238,15 @@ if __name__ == '__main__':
     # images at the same MASt3R resolution (the old hard-coded 336*512*3 only matched 3 views at 336x512).
     assert train_pts3d_m1.shape[0] >= train_pts3d_n1.shape[0], (train_pts3d_m1.shape, train_pts3d_n1.shape)
     train_pts3d_m1 = train_pts3d_m1[:train_pts3d_n1.shape[0], :]
+    # Robust similarity registration (pts_m1 ~= s * R @ pts_n1 + T). A plain least-squares fit over all pixels is
+    # dominated by far-background points with large errors, so re-fit on the best-fitting half of the points.
     s, R, T = rigid_points_registration(train_pts3d_n1, train_pts3d_m1)
+    for _ in range(5):
+        res = (s * (train_pts3d_n1 @ R.T) + T - train_pts3d_m1).norm(dim=1)
+        keep = res <= res.kthvalue(max(1, res.numel() // 2)).values
+        s, R, T = rigid_points_registration(train_pts3d_n1[keep], train_pts3d_m1[keep])
+    res = (s * (train_pts3d_n1 @ R.T) + T - train_pts3d_m1).norm(dim=1)
+    print(f"test-pose registration: scale {float(s):.4f}, median residual {float(res.median()):.4f}")
 
     # Camera-to-world poses: R_c' = R @ R_c, c' = s * R @ c + T
     R_np, T_np, s_f = R.numpy(), T.numpy(), float(s)
