@@ -146,11 +146,9 @@ bash scripts/eval_depth.sh -s 1
 └── Depths_raw/
 ```
 
-**Set the DTU root path inside:**
-- `scripts/dtu_train.sh`
-- `scripts/eval_depth.sh`
-
-> Look for variables such as `DTU_ROOT`, `DATA_ROOT`, `DATA_DIR`, etc.
+**Set the DTU paths inside:**
+- `scripts/dtu_train.sh`: `dataset_dir` (`SampleSet`) and `test_dir` (`DTU_TEST`)
+- `scripts/eval_depth.sh`: `dataset_dir` (`Depths_raw`) and `test_dir` (`DTU_TEST`)
 
 **Download from DTU’s official resources:**
 - **SampleSet**: [download](http://roboimagedata.compute.dtu.dk/?page_id=36) 
@@ -234,7 +232,7 @@ git clone --recurse-submodules https://github.com/Shubhendu-Jena/Sparfels.git
 
 ### Rebuild DUSt3R curope extension
 ```bash
-cd submodules/dust3r/croco/models/curope/
+cd submodules/mast3r/dust3r/croco/models/curope/
 python setup.py build_ext --inplace
 ```
 
@@ -268,4 +266,4 @@ This repository builds on several open-source projects (see `submodules/`). Plea
 
 ## License
 
-See the `LICENSE` file for details. Note that submodules may have their own licenses.
+See the `LICENSE.md` file for details. Note that submodules may have their own licenses.
