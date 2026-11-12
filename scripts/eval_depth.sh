@@ -55,5 +55,6 @@ for scene in "${scenes[@]}"; do
     --alignment "$alignment" \
     --set "$set" &
 done
+wait
 
 echo "Done. set=$set, ckpt=$iter, alignment=$alignment, meshdir=$meshdir"
