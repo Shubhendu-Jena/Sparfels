@@ -156,6 +156,11 @@ bash scripts/eval_depth.sh -s 1
 
 **Unzip** `SampleSet` and `Points`, then place the `Points/` folder in `SampleSet/MVS Data/`.
 
+**Build the 3-view inputs** (`./dtu_0` and `./dtu_1`) from the `DTU_TEST` folder of the 3-view splits download:
+```bash
+bash scripts/prepare_dtu_inputs.sh /path/to/DTU_TEST
+```
+
 ---
 
 ## Training (DTU)
