@@ -234,7 +234,10 @@ if __name__ == '__main__':
     # compute transform that goes from cam to world
     train_pts3d_n1 = torch.from_numpy(train_pts3d_n1)
     train_pts3d_m1 = torch.from_numpy(train_pts3d_m1)
-    train_pts3d_m1 = train_pts3d_m1[:(336*512*3), :]
+    # The first len(train_pts3d_n1) points of the coarse-init point cloud are the pixels of the same first 3 training
+    # images at the same MASt3R resolution (the old hard-coded 336*512*3 only matched 3 views at 336x512).
+    assert train_pts3d_m1.shape[0] >= train_pts3d_n1.shape[0], (train_pts3d_m1.shape, train_pts3d_n1.shape)
+    train_pts3d_m1 = train_pts3d_m1[:train_pts3d_n1.shape[0], :]
     s, R, T = rigid_points_registration(train_pts3d_n1, train_pts3d_m1)
 
     transform_matrix = torch.eye(4)
